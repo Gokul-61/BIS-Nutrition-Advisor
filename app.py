@@ -116,12 +116,12 @@ with cols_ys[0]:
 with cols_ys[1]:
     animal_data["Growing Calves (3-12 mo)"] = {
         "count": st.number_input("Growing Calves (3-12 months)", 0, 10000, 0, key="ys2"),
-        "avg_weight": st.number_input("Avg Weight (kg)", 50, 200, 100, key="ys2_wt") if st.session_state.get("ys2", 0) > 0 else 100
+        "avg_weight": st.number_input("Avg Weight (kg)", 0, 1000, 100, key="ys2_wt") if st.session_state.get("ys2", 0) > 0 else 100
     }
 with cols_ys[2]:
     animal_data["Heifers (12-24 mo)"] = {
         "count": st.number_input("Heifers (12-24 months)", 0, 10000, 0, key="h1"),
-        "avg_weight": st.number_input("Avg Weight (kg)", 150, 350, 200, key="h1_wt") if st.session_state.get("h1", 0) > 0 else 200
+        "avg_weight": st.number_input("Avg Weight (kg)", 0, 1000, 200, key="h1_wt") if st.session_state.get("h1", 0) > 0 else 200
     }
 
 st.markdown("---")
@@ -132,12 +132,12 @@ cols_p = st.columns(2)
 with cols_p[0]:
     animal_data["Pregnant Heifers (last 2 mo)"] = {
         "count": st.number_input("Pregnant Heifers (last 2 months)", 0, 10000, 0, key="h2"),
-        "avg_weight": st.number_input("Avg Weight (kg)", 250, 500, 350, key="h2_wt") if st.session_state.get("h2", 0) > 0 else 350
+        "avg_weight": st.number_input("Avg Weight (kg)", 0, 1000, 350, key="h2_wt") if st.session_state.get("h2", 0) > 0 else 350
     }
 with cols_p[1]:
     animal_data["Dry Cows"] = {
         "count": st.number_input("Dry Cows", 0, 10000, 0, key="c1"),
-        "avg_weight": st.number_input("Avg Weight (kg)", 300, 600, 400, key="c1_wt") if st.session_state.get("c1", 0) > 0 else 400
+        "avg_weight": st.number_input("Avg Weight (kg)", 0, 1000, 400, key="c1_wt") if st.session_state.get("c1", 0) > 0 else 400
     }
 
 st.markdown("---")
@@ -148,7 +148,7 @@ cols_lac = st.columns(4)
 with cols_lac[0]:
     lac_count = st.number_input("Number of Lactating Cows", 0, 10000, 0, key="lac")
 with cols_lac[1]:
-    avg_milk = st.number_input("Avg Daily Milk (kg/cow)", 0.0, 50.0, 10.0, 0.5, key="milk") if lac_count > 0 else 0
+    avg_milk = st.number_input("Avg Daily Milk (kg/cow)", 0.0, 1000.0, 10.0, 0.5, key="milk") if lac_count > 0 else 0
 with cols_lac[2]:
     milk_fat = st.selectbox("Milk Fat %", [3.0, 4.0, 5.0, 6.0, 7.0, 8.0], index=2, key="fat") if lac_count > 0 else 5.0
 with cols_lac[3]:
@@ -157,7 +157,7 @@ with cols_lac[3]:
 
 animal_data["Lactating Cows"] = {
     "count": lac_count,
-    "avg_weight": st.number_input("Avg Weight (kg)", 300, 700, 450, key="lac_wt") if lac_count > 0 else 450,
+    "avg_weight": st.number_input("Avg Weight (kg)", 0, 1000, 450, key="lac_wt") if lac_count > 0 else 450,
     "milk_kg": avg_milk,
     "fat_percent": milk_fat,
     "days_in_milk": days_in_milk
@@ -169,7 +169,7 @@ st.markdown("---")
 st.markdown("### 🐂 Breeding Bulls")
 animal_data["Adult Bulls"] = {
     "count": st.number_input("Number of Bulls", 0, 10000, 0, key="b1"),
-    "avg_weight": st.number_input("Avg Weight (kg)", 400, 800, 500, key="b1_wt") if st.session_state.get("b1", 0) > 0 else 500
+    "avg_weight": st.number_input("Avg Weight (kg)", 0, 1000, 500, key="b1_wt") if st.session_state.get("b1", 0) > 0 else 500
 }
 
 st.markdown("---")
