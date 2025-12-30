@@ -441,11 +441,11 @@ if st.session_state.calculated and st.session_state.calculation_data:
     # Summary boxes
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric("Total DCP Supplied", f"{data['total_DCP']:.0f} g/day")
+        st.metric("Total DCP(Digestible Crude Protein) Supplied", f"{data['total_DCP']:.0f} g/day")
     with col2:
-        st.metric("Total TDN Supplied", f"{data['total_TDN']:.2f} kg/day")
+        st.metric("Total TDN(Total Digestible Nutrients) Supplied", f"{data['total_TDN']:.2f} kg/day")
     with col3:
-        st.metric("Total ME Supplied", f"{data['total_ME']:.2f} Mcal/day")
+        st.metric("Total ME(Metabolizable Energy) Supplied", f"{data['total_ME']:.2f} Mcal/day")
     with col4:
         water_status = "✅" if data['water_available'] >= data['total_water_req'] else "⚠️"
         st.metric(
