@@ -15,8 +15,7 @@ from reportlab.lib.enums import TA_CENTER
 # Firebase Initialization
 # -------------------------------------------------
 if not firebase_admin._apps:
-    service_account_info = json.loads(st.secrets["FIREBASE_SERVICE_ACCOUNT"]).strip()
-    cred = credentials.Certificate(service_account_info)
+    cred = credentials.Certificate(dict(st.secrets["FIREBASE_SERVICE_ACCOUNT"]))
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
